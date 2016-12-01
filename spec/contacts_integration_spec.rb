@@ -23,7 +23,16 @@ describe('add new contact to list and success file path', {:type => :feature}) d
   it('processes users input and click to return success page') do
     visit('/contacts/new')
     fill_in('first_name', :with => 'Bruce')
+    fill_in('last_name', :with => 'Wayne')
     click_button('Save')
     expect(page).to have_content('Contact Saved')
+  end
+end
+
+describe('contact details path', {:type => :feature}) do
+  it('opens new page for each listed contact') do
+    visit('contacts')
+    click_link('Bruce Wayne')
+    expect(page).to have_content('Contact Details')
   end
 end

@@ -25,3 +25,8 @@ post('/contacts') do
   @contacts = Contact.all()
   erb(:success)
 end
+
+get('/contacts/:id') do
+  @contact = Contact.find(params.fetch('id').to_i())
+  erb(:contact_details)
+end
