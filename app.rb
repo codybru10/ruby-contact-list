@@ -30,6 +30,7 @@ end
 get('/contacts/:id') do
   @contact = Contact.find(params.fetch('id').to_i())
   @address = Address.find(params.fetch('id').to_i())
+  @address_array = Address.all()
   erb(:contact_details)
 end
 
