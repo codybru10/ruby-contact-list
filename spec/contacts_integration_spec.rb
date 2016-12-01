@@ -25,7 +25,7 @@ describe('add new contact to list and success file path', {:type => :feature}) d
     fill_in('first_name', :with => 'Bruce')
     fill_in('last_name', :with => 'Wayne')
     click_button('Save')
-    expect(page).to have_content('Contact Saved')
+    expect(page).to have_content('Information Saved')
   end
 end
 

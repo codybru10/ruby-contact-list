@@ -1,8 +1,9 @@
 class Address
-  attr_reader(:address, :city, :state, :zip)
+  attr_reader(:type, :address, :city, :state, :zip)
 
   @@address_array = []
   define_method(:initialize) do |attributes|
+    @type = attributes.fetch(:type)
     @address = attributes.fetch(:address)
     @city = attributes.fetch(:city)
     @state = attributes.fetch(:state)

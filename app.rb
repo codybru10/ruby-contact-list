@@ -35,11 +35,12 @@ get('/contacts/:id') do
 end
 
 post('/address') do
+  @type = params.fetch("type")
   @address = params.fetch("address")
   @city = params.fetch("city")
   @state = params.fetch("state")
   @zip = params.fetch("zip")
-  Address.new({:address => @address, :city => @city, :state => @state,:zip => @zip}).save()
+  Address.new({:type => @type, :address => @address, :city => @city, :state => @state,:zip => @zip}).save()
   @address = Address.all()
   erb(:success)
 end

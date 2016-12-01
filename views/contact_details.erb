@@ -13,10 +13,12 @@
 </ul>
 <ul>
 <% @address_array.each() do |address| %>
+  <h4><label>Type: </label> <%= address.type() %></h4>
   <li><label>Address: </label> <%= address.address() %></li>
   <li><label>City: </label> <%= address.city() %></li>
   <li><label>State: </label> <%= address.state() %></li>
   <li><label>Zip: </label> <%= address.zip() %></li>
+  <br>
   <% end %>
 
 </ul>
@@ -26,6 +28,8 @@
 
 <form action="/address" method="post">
   <div class="form-group">
+    <label for="type">Address Type:</label>
+    <input type="text" name="type" id="type" class="form-control">
     <label for="address">Address:</label>
     <input type="text" name="address" id="address" class="form-control">
     <label for="city">City:</label>
