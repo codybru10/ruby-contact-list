@@ -35,7 +35,4 @@ class Contact
     end
     found_contact
   end
-
-
-
 end
