@@ -9,6 +9,7 @@ class Contact
     @company = attributes.fetch(:company)
     @id = @@contacts.length().+(1)
     @location = []
+    @numbers = []
   end
 
   define_singleton_method(:all) do
@@ -31,6 +32,10 @@ class Contact
     @location
   end
 
+  define_method(:numbers) do
+    @numbers
+  end
+
   define_singleton_method(:find) do |id|
     found_contact = nil
     @@contacts.each do |contact|
@@ -44,6 +49,11 @@ class Contact
   define_method(:add_address) do |address|
     @location.push(address)
   end
+
+  define_method(:add_number) do |number|
+    @numbers.push(number)
+  end
+
 
 
 end

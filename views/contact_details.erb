@@ -12,7 +12,7 @@
   <li><label>Company: </label> <%= @contact.company() %></li>
 </ul>
 <ul>
-<% @address_array.each() do |address| %>
+  <% @address_array.each() do |address| %>
   <h4><label>Type: </label> <%= address.type() %></h4>
   <li><label>Address: </label> <%= address.address() %></li>
   <li><label>City: </label> <%= address.city() %></li>
@@ -20,11 +20,22 @@
   <li><label>Zip: </label> <%= address.zip() %></li>
   <br>
   <% end %>
-
 </ul>
 
+<h4>Add phone number</h4>
 
-<h4>Add Mailing Address Below</h4>
+<form action="/phone_number" method="post">
+  <div class="form-group">
+    <label for="phone_type">Phone Type:</label>
+    <input type="text" name="phone_type" id="phone_type" class="form-control">
+    <label for="number">Number:</label>
+    <input type="text" name="number" id="number" class="form-control">
+    <br>
+    <button type="submit" class="btn btn-primary">Save Phone Number</button>
+  </div>
+</form>
+
+<h4>Add Mailing Address</h4>
 
 <form action="/address" method="post">
   <div class="form-group">
@@ -41,5 +52,4 @@
     <br>
     <button type="submit" class="btn btn-primary">Save Address</button>
   </div>
-
 </form>
