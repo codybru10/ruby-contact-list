@@ -3,6 +3,7 @@ require('sinatra/reloader')
 also_reload('lib/**/*.rb')
 require('./lib/contacts')
 require('./lib/addresses')
+require('./lib/phone')
 
 get('/') do
   erb(:index)
@@ -30,7 +31,9 @@ end
 get('/contacts/:id') do
   @contact = Contact.find(params.fetch('id').to_i())
   @address = Address.find(params.fetch('id').to_i())
+  @phone_number = Phone.find(params.fetch('id').to_i)
   @address_array = Address.all()
+  @phone_array = Phone.all()
   erb(:contact_details)
 end
 
@@ -42,5 +45,13 @@ post('/address') do
   @zip = params.fetch("zip")
   Address.new({:type => @type, :address => @address, :city => @city, :state => @state,:zip => @zip}).save()
   @address = Address.all()
+  erb(:success)
+end
+
+post('/phone_number') do
+  @phone_type = params.fetch("phone_type")
+  @number = params.fetch("number")
+  Phone.new({:phone_type => @phone_type, :number => @number}).save()
+  @phone_number = Phone.all()
   erb(:success)
 end

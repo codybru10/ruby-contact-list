@@ -36,3 +36,21 @@ describe('contact details path', {:type => :feature}) do
     expect(page).to have_content('Contact Details')
   end
 end
+
+describe('add address to contact list and success file path', {:type => :feature}) do
+  it('processes users input and click to return success page') do
+    visit('/contacts/1')
+    fill_in('address', :with => '101 loop')
+    click_button('Save Address')
+    expect(page).to have_content('Information Saved')
+  end
+end
+
+describe('add phone to contact list and success file path', {:type => :feature}) do
+  it('processes users input and click to return success page') do
+    visit('/contacts/1')
+    fill_in('number', :with => '123456789')
+    click_button('Save Phone Number')
+    expect(page).to have_content('Information Saved')
+  end
+end

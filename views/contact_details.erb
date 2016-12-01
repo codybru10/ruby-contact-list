@@ -12,6 +12,13 @@
   <li><label>Company: </label> <%= @contact.company() %></li>
 </ul>
 <ul>
+  <% @phone_array.each() do |number| %>
+  <h4><label>Type: </label> <%= number.phone_type() %></h4>
+  <li><label>Number: </label> <%= number.number() %></li>
+  <br>
+  <% end %>
+</ul>
+<ul>
   <% @address_array.each() do |address| %>
   <h4><label>Type: </label> <%= address.type() %></h4>
   <li><label>Address: </label> <%= address.address() %></li>
